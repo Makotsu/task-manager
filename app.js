@@ -12,6 +12,37 @@ class TaskManager {
         this.initElements();
         this.bindEvents();
         this.render();
+        this.requestNotificationPermission();
+    }
+
+    // 通知許可をリクエスト
+    requestNotificationPermission() {
+        if ('Notification' in window && Notification.permission === 'default') {
+            Notification.requestPermission();
+        }
+    }
+
+    // デスクトップ通知を送信
+    sendNotification(title, body, priority) {
+        if ('Notification' in window && Notification.permission === 'granted') {
+            const icons = {
+                high: '🎉',
+                medium: '✅',
+                low: '👍'
+            };
+            const notification = new Notification(title, {
+                body: body,
+                icon: icons[priority] || '✅',
+                badge: icons[priority] || '✅',
+                tag: 'task-complete',
+                requireInteraction: false
+            });
+
+            // 3秒後に自動的に閉じる
+            setTimeout(() => {
+                notification.close();
+            }, 3000);
+        }
     }
 
     // DOM要素の取得
@@ -159,9 +190,14 @@ class TaskManager {
             this.saveTasks();
             this.render();
 
-            // 未完了→完了になった時に猫を表示（優先度を渡す）
+            // 未完了→完了になった時に猫を表示（優先度を渡す）+ 通知
             if (!wasCompleted && task.completed) {
                 this.showCelebrationCat(task.priority);
+                this.sendNotification(
+                    'タスク完了！',
+                    `「${task.title}」を完了しました`,
+                    task.priority
+                );
             }
         }
     }
@@ -239,12 +275,19 @@ class TaskManager {
 
         // ゲームボタンの表示/非表示
         const playGameBtn = document.getElementById('play-game-btn');
+        const playNeonGameBtn = document.getElementById('play-neon-game-btn');
         if (priority === 'high') {
-            // 高優先度の場合、ゲームボタンを表示
+            // 高優先度の場合、両方のゲームボタンを表示
             playGameBtn.classList.add('visible');
+            if (playNeonGameBtn) {
+                playNeonGameBtn.classList.add('visible');
+            }
             // 猫は消さない（ボタンがクリックされるまで）
         } else {
             playGameBtn.classList.remove('visible');
+            if (playNeonGameBtn) {
+                playNeonGameBtn.classList.remove('visible');
+            }
             // 設定した時間後に非表示
             setTimeout(() => {
                 catContainer.classList.remove('active');

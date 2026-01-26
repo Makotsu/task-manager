@@ -831,3 +831,48 @@ h2 {
 .game-overlay.active {
     display: block;
 }
+
+/* ネオンゲーム用ボタン */
+.play-neon-btn {
+    background: linear-gradient(135deg, #00ffff 0%, #ff00ff 100%);
+    margin-top: 10px;
+}
+
+.play-neon-btn:hover {
+    background: linear-gradient(135deg, #00cccc 0%, #cc00cc 100%);
+}
+
+/* ネオンゲーム専用スタイル */
+.neon-game {
+    background: linear-gradient(135deg, #0a0a1a 0%, #1a0a2a 100%);
+    border: 3px solid #0ff;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.3), 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.neon-header {
+    background: linear-gradient(90deg, rgba(0, 255, 255, 0.2), rgba(255, 0, 255, 0.2));
+    color: #0ff;
+}
+
+#neon-canvas {
+    background: #0a0a1a;
+}
+
+.neon-over {
+    background: rgba(10, 10, 26, 0.95);
+    border: 2px solid #0ff;
+}
+
+.neon-over h2 {
+    color: #0ff;
+    text-shadow: 0 0 20px #0ff;
+}
+
+.neon-restart {
+    background: linear-gradient(135deg, #0ff 0%, #f0f 100%);
+    color: #000;
+}
+
+.neon-restart:hover {
+    background: linear-gradient(135deg, #0cc 0%, #c0c 100%);
+}

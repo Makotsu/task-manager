@@ -192,7 +192,8 @@
         </div>
         <div class="celebration-text" id="celebration-text">やったにゃ！</div>
         <div class="confetti-container" id="confetti"></div>
-        <button id="play-game-btn" class="play-game-btn">ゲームで遊ぶにゃ！</button>
+        <button id="play-game-btn" class="play-game-btn">インベーダーで遊ぶにゃ！</button>
+        <button id="play-neon-game-btn" class="play-game-btn play-neon-btn">ネオンバウンスで遊ぶにゃ！</button>
     </div>
 
     <!-- インベーダーゲーム -->
@@ -213,7 +214,27 @@
         </div>
     </div>
 
+    <!-- ネオンバウンスゲーム -->
+    <div id="neon-game-container" class="game-container neon-game">
+        <div class="game-header neon-header">
+            <span>スコア: <span id="neon-score">0</span></span>
+            <span>コンボ: <span id="neon-combo">0</span></span>
+            <span>残り: <span id="neon-time">2:00</span></span>
+            <button id="neon-close-btn" class="game-close-btn">×</button>
+        </div>
+        <canvas id="neon-canvas" width="500" height="400"></canvas>
+        <div id="neon-game-over-screen" class="game-over-screen neon-over">
+            <h2 id="neon-game-over-text">タイムアップ！</h2>
+            <p id="neon-final-score">スコア: 0</p>
+            <button id="neon-restart-btn" class="game-restart-btn neon-restart">もう一度遊ぶ</button>
+        </div>
+        <div class="game-controls">
+            <p>スペース / クリック / タップ で重力反転</p>
+        </div>
+    </div>
+
     <script src="app.js"></script>
     <script src="game.js"></script>
+    <script src="neon-game.js"></script>
 </body>
 </html>
