@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>タスク管理アプリ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>タスク管理</h1>
+        </header>
+
+        <main>
+            <!-- タスク追加フォーム -->
+            <section class="task-form-section">
+                <h2>新規タスク</h2>
+                <form id="task-form">
+                    <div class="form-group">
+                        <label for="task-title">タイトル</label>
+                        <input type="text" id="task-title" required placeholder="タスク名を入力">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="task-description">説明</label>
+                        <textarea id="task-description" placeholder="詳細を入力（任意）"></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="task-due-date">期限</label>
+                            <input type="date" id="task-due-date">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="task-priority">優先度</label>
+                            <select id="task-priority">
+                                <option value="low">低</option>
+                                <option value="medium" selected>中</option>
+                                <option value="high">高</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="task-category">カテゴリ</label>
+                        <select id="task-category">
+                            <option value="">選択してください</option>
+                            <option value="work">仕事</option>
+                            <option value="personal">プライベート</option>
+                            <option value="study">勉強</option>
+                            <option value="health">健康</option>
+                            <option value="other">その他</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="task-tags">タグ</label>
+                        <input type="text" id="task-tags" placeholder="カンマ区切りでタグを入力">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">タスクを追加</button>
+                </form>
+            </section>
+
+            <!-- フィルター -->
+            <section class="filter-section">
+                <h2>フィルター</h2>
+                <div class="filters">
+                    <div class="filter-group">
+                        <label for="filter-status">ステータス</label>
+                        <select id="filter-status">
+                            <option value="all">すべて</option>
+                            <option value="pending">未完了</option>
+                            <option value="completed">完了</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="filter-priority">優先度</label>
+                        <select id="filter-priority">
+                            <option value="all">すべて</option>
+                            <option value="high">高</option>
+                            <option value="medium">中</option>
+                            <option value="low">低</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="filter-category">カテゴリ</label>
+                        <select id="filter-category">
+                            <option value="all">すべて</option>
+                            <option value="work">仕事</option>
+                            <option value="personal">プライベート</option>
+                            <option value="study">勉強</option>
+                            <option value="health">健康</option>
+                            <option value="other">その他</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <!-- タスク一覧 -->
+            <section class="task-list-section">
+                <h2>タスク一覧 <span id="task-count">(0)</span></h2>
+                <div id="task-list" class="task-list">
+                    <!-- タスクがここに表示される -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- 編集モーダル -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>タスクを編集</h2>
+            <form id="edit-form">
+                <input type="hidden" id="edit-task-id">
+
+                <div class="form-group">
+                    <label for="edit-title">タイトル</label>
+                    <input type="text" id="edit-title" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="edit-description">説明</label>
+                    <textarea id="edit-description"></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="edit-due-date">期限</label>
+                        <input type="date" id="edit-due-date">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="edit-priority">優先度</label>
+                        <select id="edit-priority">
+                            <option value="low">低</option>
+                            <option value="medium">中</option>
+                            <option value="high">高</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="edit-category">カテゴリ</label>
+                    <select id="edit-category">
+                        <option value="">選択してください</option>
+                        <option value="work">仕事</option>
+                        <option value="personal">プライベート</option>
+                        <option value="study">勉強</option>
+                        <option value="health">健康</option>
+                        <option value="other">その他</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="edit-tags">タグ</label>
+                    <input type="text" id="edit-tags">
+                </div>
+
+                <button type="submit" class="btn btn-primary">更新</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 喜ぶ猫 -->
+    <div id="celebration-cat" class="celebration-cat">
+        <div class="cat">
+            <div class="cat-body">
+                <div class="cat-head">
+                    <div class="cat-ears">
+                        <div class="ear left"></div>
+                        <div class="ear right"></div>
+                    </div>
+                    <div class="cat-face">
+                        <div class="cat-eyes">
+                            <div class="eye left">^</div>
+                            <div class="eye right">^</div>
+                        </div>
+                        <div class="cat-mouth">ω</div>
+                    </div>
+                </div>
+                <div class="cat-arms">
+                    <div class="arm left">\</div>
+                    <div class="arm right">/</div>
+                </div>
+            </div>
+        </div>
+        <div class="celebration-text" id="celebration-text">やったにゃ！</div>
+        <div class="confetti-container" id="confetti"></div>
+        <button id="play-game-btn" class="play-game-btn">ゲームで遊ぶにゃ！</button>
+    </div>
+
+    <!-- インベーダーゲーム -->
+    <div id="game-container" class="game-container">
+        <div class="game-header">
+            <span>スコア: <span id="game-score">0</span></span>
+            <span>ライフ: <span id="game-lives">3</span></span>
+            <button id="game-close-btn" class="game-close-btn">×</button>
+        </div>
+        <canvas id="game-canvas" width="400" height="500"></canvas>
+        <div id="game-over-screen" class="game-over-screen">
+            <h2 id="game-over-text">ゲームオーバー</h2>
+            <p>スコア: <span id="final-score">0</span></p>
+            <button id="game-restart-btn" class="game-restart-btn">もう一度遊ぶ</button>
+        </div>
+        <div class="game-controls">
+            <p>← → で移動、スペースで発射</p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
