@@ -192,8 +192,9 @@
         </div>
         <div class="celebration-text" id="celebration-text">やったにゃ！</div>
         <div class="confetti-container" id="confetti"></div>
-        <button id="play-game-btn" class="play-game-btn">インベーダーで遊ぶにゃ！</button>
+        <button id="play-baseball-btn" class="play-game-btn play-baseball-btn">バッティングで遊ぶにゃ！</button>
         <button id="play-neon-game-btn" class="play-game-btn play-neon-btn">ネオンバウンスで遊ぶにゃ！</button>
+        <button id="play-game-btn" class="play-game-btn">インベーダーで遊ぶにゃ！</button>
     </div>
 
     <!-- インベーダーゲーム -->
@@ -233,8 +234,25 @@
         </div>
     </div>
 
+    <!-- バッティングゲーム -->
+    <div id="baseball-game-container" class="game-container baseball-game">
+        <div class="game-header baseball-header">
+            <span>得点: <span id="baseball-score">0</span></span>
+            <span><span id="baseball-inning">1</span>回</span>
+            <span><span id="baseball-out">0</span>アウト</span>
+            <button id="baseball-close-btn" class="game-close-btn">×</button>
+        </div>
+        <canvas id="baseball-canvas" width="500" height="400"></canvas>
+        <div id="baseball-game-over-screen" class="game-over-screen baseball-over">
+            <h2>試合終了！</h2>
+            <p id="baseball-final-score">0 点</p>
+            <button id="baseball-restart-btn" class="game-restart-btn baseball-restart">もう一度遊ぶ</button>
+        </div>
+    </div>
+
     <script src="app.js"></script>
     <script src="game.js"></script>
     <script src="neon-game.js"></script>
+    <script src="baseball-game.js"></script>
 </body>
 </html>

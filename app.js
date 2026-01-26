@@ -276,18 +276,17 @@ class TaskManager {
         // ゲームボタンの表示/非表示
         const playGameBtn = document.getElementById('play-game-btn');
         const playNeonGameBtn = document.getElementById('play-neon-game-btn');
+        const playBaseballBtn = document.getElementById('play-baseball-btn');
         if (priority === 'high') {
-            // 高優先度の場合、両方のゲームボタンを表示
+            // 高優先度の場合、全てのゲームボタンを表示
             playGameBtn.classList.add('visible');
-            if (playNeonGameBtn) {
-                playNeonGameBtn.classList.add('visible');
-            }
+            if (playNeonGameBtn) playNeonGameBtn.classList.add('visible');
+            if (playBaseballBtn) playBaseballBtn.classList.add('visible');
             // 猫は消さない（ボタンがクリックされるまで）
         } else {
             playGameBtn.classList.remove('visible');
-            if (playNeonGameBtn) {
-                playNeonGameBtn.classList.remove('visible');
-            }
+            if (playNeonGameBtn) playNeonGameBtn.classList.remove('visible');
+            if (playBaseballBtn) playBaseballBtn.classList.remove('visible');
             // 設定した時間後に非表示
             setTimeout(() => {
                 catContainer.classList.remove('active');

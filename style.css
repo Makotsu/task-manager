@@ -876,3 +876,48 @@ h2 {
 .neon-restart:hover {
     background: linear-gradient(135deg, #0cc 0%, #c0c 100%);
 }
+
+/* バッティングゲーム用ボタン */
+.play-baseball-btn {
+    background: linear-gradient(135deg, #228b22 0%, #8b4513 100%);
+    margin-top: 10px;
+}
+
+.play-baseball-btn:hover {
+    background: linear-gradient(135deg, #1a6b1a 0%, #6b3510 100%);
+}
+
+/* バッティングゲーム専用スタイル */
+.baseball-game {
+    background: linear-gradient(135deg, #1a3a5c 0%, #228b22 100%);
+    border: 3px solid #fff;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.3), 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.baseball-header {
+    background: linear-gradient(90deg, #1a1a8a, #8a1a1a);
+    color: #fff;
+}
+
+#baseball-canvas {
+    background: #228b22;
+}
+
+.baseball-over {
+    background: rgba(26, 26, 138, 0.95);
+    border: 2px solid #fff;
+}
+
+.baseball-over h2 {
+    color: #fff;
+    text-shadow: 0 0 10px #ff0;
+}
+
+.baseball-restart {
+    background: linear-gradient(135deg, #fff 0%, #ff0 100%);
+    color: #000;
+}
+
+.baseball-restart:hover {
+    background: linear-gradient(135deg, #eee 0%, #cc0 100%);
+}
