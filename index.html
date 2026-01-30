@@ -192,6 +192,7 @@
         </div>
         <div class="celebration-text" id="celebration-text">やったにゃ！</div>
         <div class="confetti-container" id="confetti"></div>
+        <button id="play-basketball-btn" class="play-game-btn play-basketball-btn">バスケで遊ぶにゃ！</button>
         <button id="play-baseball-btn" class="play-game-btn play-baseball-btn">バッティングで遊ぶにゃ！</button>
         <button id="play-neon-game-btn" class="play-game-btn play-neon-btn">ネオンバウンスで遊ぶにゃ！</button>
         <button id="play-game-btn" class="play-game-btn">インベーダーで遊ぶにゃ！</button>
@@ -250,9 +251,25 @@
         </div>
     </div>
 
+    <!-- バスケットボールゲーム -->
+    <div id="basketball-game-container" class="game-container basketball-game">
+        <div class="game-header basketball-header">
+            <span>得点: <span id="basketball-game-score">0</span></span>
+            <span>残り: <span id="basketball-shots">10</span>本</span>
+            <button id="basketball-close-btn" class="game-close-btn">×</button>
+        </div>
+        <canvas id="basketball-canvas" width="500" height="450"></canvas>
+        <div id="basketball-game-over-screen" class="game-over-screen basketball-over">
+            <h2>ゲーム終了！</h2>
+            <p id="basketball-final-score">0 点</p>
+            <button id="basketball-restart-btn" class="game-restart-btn basketball-restart">もう一度遊ぶ</button>
+        </div>
+    </div>
+
     <script src="app.js"></script>
     <script src="game.js"></script>
     <script src="neon-game.js"></script>
     <script src="baseball-game.js"></script>
+    <script src="basketball-game.js"></script>
 </body>
 </html>

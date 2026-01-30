@@ -921,3 +921,48 @@ h2 {
 .baseball-restart:hover {
     background: linear-gradient(135deg, #eee 0%, #cc0 100%);
 }
+
+/* バスケットボールゲーム用ボタン */
+.play-basketball-btn {
+    background: linear-gradient(135deg, #ff8c00 0%, #cc4400 100%);
+    margin-top: 10px;
+}
+
+.play-basketball-btn:hover {
+    background: linear-gradient(135deg, #ff6600 0%, #aa3300 100%);
+}
+
+/* バスケットボールゲーム専用スタイル */
+.basketball-game {
+    background: linear-gradient(135deg, #2c1810 0%, #1a0f0a 100%);
+    border: 3px solid #ff8c00;
+    box-shadow: 0 0 30px rgba(255, 140, 0, 0.3), 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.basketball-header {
+    background: linear-gradient(90deg, #ff8c00, #cc4400);
+    color: #fff;
+}
+
+#basketball-canvas {
+    background: #2c1810;
+}
+
+.basketball-over {
+    background: rgba(44, 24, 16, 0.95);
+    border: 2px solid #ff8c00;
+}
+
+.basketball-over h2 {
+    color: #ff8c00;
+    text-shadow: 0 0 10px #ff8c00;
+}
+
+.basketball-restart {
+    background: linear-gradient(135deg, #ff8c00 0%, #ff6600 100%);
+    color: #fff;
+}
+
+.basketball-restart:hover {
+    background: linear-gradient(135deg, #ff6600 0%, #cc4400 100%);
+}
